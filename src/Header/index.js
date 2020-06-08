@@ -20,7 +20,7 @@ const useStyles = makeStyles({
 export default function Header({ shoppingCartCount }) {
   const classes = useStyles();
   return (
-    <AppBar position="static">
+    <AppBar position="sticky">
       <Toolbar>
         <Typography variant="h6" className={classes.title}>
           Love Pizza
