@@ -1,28 +1,19 @@
 import React from "react";
+import PizzaList from "../PizzaList";
 import { CssBaseline } from "@material-ui/core";
 import { ThemeProvider } from "@material-ui/core/styles";
 
-import PizzaCard from "../PizzaCard";
 import { theme } from "./theme";
 import Header from "../Header";
-
+import db from "../db.json";
 export default function App() {
+  const pizzas = db.pizzas;
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Header shoppingCartCount={3} />
-      <PizzaCard
-        name="Savoyarde"
-        ingredients={[
-          "crème fraîche",
-          " Reblochons",
-          "Oignons",
-          "Lardons",
-          "Pomme de terre",
-        ]}
-        imageUrl="https://picsum.photos/350"
-        price={9.9}
-      />
+      <PizzaList data={pizzas} />
     </ThemeProvider>
   );
 }

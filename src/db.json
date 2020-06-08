@@ -1,0 +1,37 @@
+{
+  "pizzas": [
+    {
+      "id": 1,
+      "name": "Savoyarde",
+      "ingredients": [
+        "crème fraîche",
+        " Reblochons",
+        "Oignons",
+        "Lardons",
+        "Pomme de terre"
+      ],
+      "imageUrl": "https://picsum.photos/350",
+      "price": 9.9
+    },
+    {
+      "id": 2,
+      "name": "Norvegienne",
+      "ingredients": ["crème fraîche", " Saumon", "Olives", "Aneth", "Citron"],
+      "imageUrl": "https://picsum.photos/350",
+      "price": 9
+    },
+    {
+      "id": 3,
+      "name": "4 fromages",
+      "ingredients": [
+        "Tomate",
+        "Reblochons",
+        "Chèvre",
+        "Emmental",
+        "Mozzarela"
+      ],
+      "imageUrl": "https://picsum.photos/350",
+      "price": 8.9
+    }
+  ]
+}

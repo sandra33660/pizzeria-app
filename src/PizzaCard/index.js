@@ -40,6 +40,7 @@ export default function PizzaCard({ name, ingredients, price, imageUrl }) {
   );
 }
 PizzaCard.propTypes = {
+  id: number,
   name: string.isRequired,
   ingredients: arrayOf(string).isRequired,
   price: number.isRequired,
