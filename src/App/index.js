@@ -20,6 +20,7 @@ export default function App() {
           "Lardons",
           "Pomme de terre",
         ]}
+        imageUrl="https://picsum.photos/350"
         price={9.9}
       />
     </ThemeProvider>
