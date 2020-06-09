@@ -2,7 +2,6 @@ import { arrayOf, node, bool, string, func, shape } from "prop-types";
 import React from "react";
 import {
   DialogContent,
-  DialogContentText,
   DialogTitle,
   DialogActions,
   Button,
@@ -17,11 +16,7 @@ export default function Popin({ open, title, children, actions, onClose }) {
       aria-describedby="alert-dialog-description"
     >
       <DialogTitle id="alert-dialog-title">{title}</DialogTitle>
-      <DialogContent>
-        <DialogContentText id="alert-dialog-description">
-          {children}
-        </DialogContentText>
-      </DialogContent>
+      <DialogContent>{children}</DialogContent>
       <DialogActions>
         {actions.map(({ label, onClick, primary }) => (
           <Button

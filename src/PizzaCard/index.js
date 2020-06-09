@@ -24,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function PizzaCard({
+  id,
   name,
   ingredients,
   price,
@@ -59,7 +60,7 @@ export default function PizzaCard({
           color="primary"
           variant="contained"
           onClick={() => {
-            addToCart(name);
+            addToCart({ id, name, price, addedAt: Date.now() });
           }}
         >
           Ajouter
