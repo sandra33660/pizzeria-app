@@ -35,27 +35,27 @@
     },
     {
       "id": 4,
-      "name": "Savoyarde",
+      "name": "Reine",
       "ingredients": [
-        "crème fraîche",
-        " Reblochons",
-        "Oignons",
-        "Lardons",
-        "Pomme de terre"
+        "Sauce tomate",
+        " Origan",
+        "Jambon",
+        "Champignons",
+        "Fromage"
       ],
       "imageUrl": "https://picsum.photos/350",
       "price": 9.9
     },
     {
       "id": 5,
-      "name": "Norvegienne",
-      "ingredients": ["crème fraîche", " Saumon", "Olives", "Aneth", "Citron"],
+      "name": "Margherita",
+      "ingredients": ["sauce tomate", " Fromage", "Origan"],
       "imageUrl": "https://picsum.photos/350",
       "price": 9
     },
     {
       "id": 6,
-      "name": "4 fromages",
+      "name": "Napolitaine",
       "ingredients": [
         "Tomate",
         "Reblochons",
@@ -68,14 +68,14 @@
     },
     {
       "id": 7,
-      "name": "Norvegienne",
+      "name": "Hawaîenne",
       "ingredients": ["crème fraîche", " Saumon", "Olives", "Aneth", "Citron"],
       "imageUrl": "https://picsum.photos/350",
       "price": 9
     },
     {
       "id": 8,
-      "name": "4 fromages",
+      "name": "Calzone",
       "ingredients": [
         "Tomate",
         "Reblochons",

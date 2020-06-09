@@ -25,7 +25,7 @@ export default function Popin({ open, title, children, actions, onClose }) {
       <DialogActions>
         {actions.map(({ label, onClick, primary }) => (
           <Button
-            Key={label}
+            key={label}
             color={primary ? "primary" : "secondary"}
             onClick={onClick}
           >
