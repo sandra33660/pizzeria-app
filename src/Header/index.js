@@ -8,7 +8,7 @@ import {
   IconButton,
   Badge,
 } from "@material-ui/core";
-import { number } from "prop-types";
+import { func, number } from "prop-types";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 
 const useStyles = makeStyles({
@@ -17,7 +17,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function Header({ shoppingCartCount }) {
+export default function Header({ shoppingCartCount, displayPopinCart }) {
   const classes = useStyles();
   return (
     <AppBar position="sticky">
@@ -25,7 +25,11 @@ export default function Header({ shoppingCartCount }) {
         <Typography variant="h6" className={classes.title}>
           Love Pizza
         </Typography>
-        <IconButton aria-label={`${shoppingCartCount} pizzas`} color="inherit">
+        <IconButton
+          aria-label={`${shoppingCartCount} pizzas`}
+          color="inherit"
+          onClick={displayPopinCart}
+        >
           <Badge badgeContent={shoppingCartCount} color="secondary">
             <ShoppingCartIcon />
           </Badge>
@@ -36,7 +40,9 @@ export default function Header({ shoppingCartCount }) {
 }
 Header.defaultProps = {
   shoppingCartCount: 0,
+  displayPopinCart: Function.pototypes,
 };
 Header.propTypes = {
   shoppingCartCount: number,
+  displayPopinCart: func,
 };
