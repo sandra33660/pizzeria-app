@@ -13,6 +13,7 @@ import {
 } from "@material-ui/core";
 import { arrayOf, string, number, func } from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
+import useCounter from "../useCounter";
 
 const imageSize = 175;
 const useStyles = makeStyles((theme) => ({
@@ -35,10 +36,11 @@ export default function PizzaCard({
 }) {
   const classes = useStyles();
 
-  const [pizzaCount, setPizzaCount] = React.useState(1);
-  const decrement = () => setPizzaCount(Math.max(0, pizzaCount - 1));
-  const increment = () =>
-    setPizzaCount(Math.min(pizzaCount + 1, PIZZAS_MAX_COUNT));
+  const [pizzaCount, { decrement, increment }] = useCounter(
+    1,
+    0,
+    PIZZAS_MAX_COUNT
+  );
   return (
     <Card className={classes.root}>
       {imageUrl && (
