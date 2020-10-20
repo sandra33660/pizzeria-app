@@ -5,11 +5,11 @@ import { CircularProgress } from "@material-ui/core";
 import usePizzas from "../usePizzas";
 
 export default function PizzaListScreen() {
-  const { status, data: pizzas } = usePizzas();
+  const { isFetching, data: pizzas } = usePizzas();
   return (
     <Screen>
-      {status === "loading" && <CircularProgress />}
-      {status === "success" && <PizzaList data={pizzas} />}
+      {isFetching && <CircularProgress />}
+      {pizzas && <PizzaList data={pizzas} />}
     </Screen>
   );
 }
