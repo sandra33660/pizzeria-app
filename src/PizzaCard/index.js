@@ -13,7 +13,7 @@ import {
 } from "@material-ui/core";
 import { arrayOf, string, number, func } from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
-import useCounter from "../useCounter";
+import { useCounter } from "react-use";
 
 const imageSize = 175;
 const useStyles = makeStyles((theme) => ({
@@ -36,11 +36,13 @@ export default function PizzaCard({
 }) {
   const classes = useStyles();
 
-  const [pizzaCount, { decrement, increment }] = useCounter(
-    1,
-    0,
-    PIZZAS_MAX_COUNT
-  );
+  const [pizzaCount, { dec, inc }] = useCounter(1, PIZZAS_MAX_COUNT, 1);
+  const addedPizzas = Array.from(new Array(pizzaCount), () => ({
+    id,
+    name,
+    price,
+    addedAt: Date.now(),
+  }));
   return (
     <Card className={classes.root}>
       {imageUrl && (
@@ -62,11 +64,11 @@ export default function PizzaCard({
         <Typography variant="h4" component="p">
           <Price value={price} />{" "}
         </Typography>
-        <IconButton arial-label="moins" onClick={decrement}>
+        <IconButton arial-label="moins" onClick={() => dec()}>
           <IndeterminateCheckBox fontSize="inherit" />
         </IconButton>
         <span>{pizzaCount}</span>
-        <IconButton arial-label="plus" onClick={increment}>
+        <IconButton arial-label="plus" onClick={() => inc()}>
           <AddBox fontSize="inherit" />
         </IconButton>
       </CardContent>
@@ -76,7 +78,7 @@ export default function PizzaCard({
           color="primary"
           variant="contained"
           onClick={() => {
-            addToCart({ id, name, price, addedAt: Date.now() });
+            addToCart(...addedPizzas);
           }}
         >
           Ajouter

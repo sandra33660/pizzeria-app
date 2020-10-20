@@ -14,15 +14,9 @@ export default function PizzaList({ data, addToCart }) {
     );
   return (
     <Grid container justify="space-evenly">
-      {data.map(({ id, name, ingredients, imageUrl, price }) => (
-        <Grid key={id} item xs={6}>
-          <PizzaCard
-            name={name}
-            ingredients={ingredients}
-            imageUrl={imageUrl}
-            price={price}
-            addToCart={addToCart}
-          />
+      {data.map((pizza) => (
+        <Grid key={pizza.id} item xs={6}>
+          <PizzaCard {...pizza} addToCart={addToCart} />
         </Grid>
       ))}
     </Grid>

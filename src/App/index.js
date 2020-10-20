@@ -1,6 +1,6 @@
 import React from "react";
 import { useList } from "react-use";
-
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import PizzaList from "../PizzaList";
 import {
   CircularProgress,
@@ -12,38 +12,18 @@ import { useQuery } from "react-query";
 
 import { theme } from "./theme";
 import Header from "../Header";
-import PopinCart from "../PopinCart";
 
-const fetchPizzas = () => {
-  const baseUrlApi =
-    process.env.REACT_APP_BASE_URL_API || "http://localhost:3001";
-  return fetch(`${baseUrlApi}/pizzas`).then((response) => response.json());
-};
+import PizzaListScreen from "../PizzaListScreen/index";
+import CartScreen from "../CartScreen/index";
+
 export default function App() {
-  const { status, data } = useQuery("pizzas", fetchPizzas);
-  const [popinCartOpen, setPopinCartOpen] = React.useState(false);
-  const [cart, { push, reset }] = useList([]);
-  const displayPopinCart = () => {
-    setPopinCartOpen(true);
-  };
-  const hidePopinCart = () => {
-    setPopinCartOpen(false);
-  };
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Header
-        shoppingCartCount={cart.length}
-        displayPopinCart={displayPopinCart}
-      />
-      {status === "loading" && <CircularProgress />}
-      {status === "success" && <PizzaList data={data} addToCart={push} />}
-      <PopinCart
-        open={popinCartOpen}
-        hidePopinCart={hidePopinCart}
-        reset={reset}
-        cart={cart}
-      />
+      <Router>
+        <Route exact path="/" component={PizzaListScreen}></Route>
+        <Route exact path="/cart" component={CartScreen}></Route>
+      </Router>
     </ThemeProvider>
   );
 }
