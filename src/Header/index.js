@@ -8,7 +8,7 @@ import {
   IconButton,
   Badge,
 } from "@material-ui/core";
-import { func, number } from "prop-types";
+import { number } from "prop-types";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import routes from "../App/routes";
 
